@@ -35,6 +35,11 @@ export default class ChuckNorris {
     });
   }
 
+  @Intent('AMAZON.NoIntent', 'AMAZON.StopIntent', 'AMAZON.CancelIntent')
+  stop() {
+    return Response.say('Oh, you\'re giving up. Chuck Norris never gives up.');
+  }
+
   getJoke() {
     return fetch(API_ENDPOINT).then(_ => _.json()).then(response => {
       const { type, value } = response;
